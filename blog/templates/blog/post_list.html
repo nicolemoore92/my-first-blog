@@ -7,16 +7,13 @@
       <h1><a href="/">Django Girls Blog</a></h1>
     </div>
 
-    <div>
-      <p>published: 19.12.2018, 08:10</p>
-      <h2><a href="">My first post</a></h2>
-      <p>Humpty Dumpty sat on a wall, Humpty Dumpty had a great fall. All the King's horses, And all the King's men, couldn't put Humpty together again!</p>
-    </div>
-
-    <div>
-      <p>published: 19.12.2018, 08:10</p>
-      <h2><a href="">My second post</a></h2>
-      <p>Jack and Jill went up the hill to fetch a pail of water, Jack fell down and broke his crown and Jill came tumbling after. Up got Jack, and home did trot, as fast as he could caper. He went to bed and bound his head, with vinegar and brown paper.</p>
+    {% for post in posts %}
+      <div>
+        <p>published: {{ post.published_date }}</p>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+      </div>
+    {% endfor %}
     </div>
   </body>
 </html>
